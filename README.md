@@ -1,2 +1,3 @@
 # STM32.BLDC
- Machine with BLDC motor drive and button control
+ Machine with 3-phase BLDC motor drive, ADC and button control.
+ 
