@@ -1,0 +1,28 @@
+--cpu=Cortex-M4.fp.sp
+"mas_mini_v2\startup_stm32f411xe.o"
+"mas_mini_v2\main.o"
+"mas_mini_v2\stm32f4xx_it.o"
+"mas_mini_v2\stm32f4xx_hal_msp.o"
+"mas_mini_v2\stm32f4xx_hal_adc.o"
+"mas_mini_v2\stm32f4xx_hal_adc_ex.o"
+"mas_mini_v2\stm32f4xx_ll_adc.o"
+"mas_mini_v2\stm32f4xx_hal_rcc.o"
+"mas_mini_v2\stm32f4xx_hal_rcc_ex.o"
+"mas_mini_v2\stm32f4xx_hal_flash.o"
+"mas_mini_v2\stm32f4xx_hal_flash_ex.o"
+"mas_mini_v2\stm32f4xx_hal_flash_ramfunc.o"
+"mas_mini_v2\stm32f4xx_hal_gpio.o"
+"mas_mini_v2\stm32f4xx_hal_dma_ex.o"
+"mas_mini_v2\stm32f4xx_hal_dma.o"
+"mas_mini_v2\stm32f4xx_hal_pwr.o"
+"mas_mini_v2\stm32f4xx_hal_pwr_ex.o"
+"mas_mini_v2\stm32f4xx_hal_cortex.o"
+"mas_mini_v2\stm32f4xx_hal.o"
+"mas_mini_v2\stm32f4xx_hal_exti.o"
+"mas_mini_v2\stm32f4xx_hal_tim.o"
+"mas_mini_v2\stm32f4xx_hal_tim_ex.o"
+"mas_mini_v2\system_stm32f4xx.o"
+--strict --scatter "mas_mini_v2\mas_mini_v2.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "mas_mini_v2.map" -o mas_mini_v2\mas_mini_v2.axf
