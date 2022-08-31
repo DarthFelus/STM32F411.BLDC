@@ -9,7 +9,7 @@
  Button1 (PA11, Brown)
  
  Pinout: 8-pin (GX-16)
- 1. Vcc (24 V DC)				          5. PWM (PA6, Yellow)
- 2. GND							                 6. FR (PB2, Green)
- 3. GND							                 7. —
- 4. Button2 (PB15, Orange)		   8. Vcc (5 V DC)
+ 1. Vcc (24 V DC)⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀5. PWM (PA6, Yellow)
+ 2. GND⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀6. FR (PB2, Green)
+ 3. GND⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀7. —
+ 4. Button2 (PB15, Orange)⠀⠀⠀⠀⠀8. Vcc (5 V DC)
