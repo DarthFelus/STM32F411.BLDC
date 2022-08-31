@@ -68,17 +68,27 @@ static void MX_TIM3_Init(void);
 
 void PWM_Speed(void)
 {
-	if (adc < 10){ duty = 0; }
-	if (adc >= 10 && adc < 400) { duty = 10000; }
-	if (adc >= 400 && adc < 800) { duty = 15000; }
-	if (adc >= 800 && adc < 1200) { duty = 20000; }
-	if (adc >= 1200 && adc < 1600) { duty = 25000; }
-	if (adc >= 1600 && adc < 2000) { duty = 30000; }
-	if (adc >= 2000 && adc < 2400) { duty = 35000; }
-	if (adc >= 2800 && adc < 3200) { duty = 40000; }
-	if (adc >= 3200 && adc < 3600) { duty = 45000; }
-	if (adc >= 3600 && adc < 4000) { duty = 45500; }
-	if (adc >= 4000) { duty = 49900; }
+	if (adc < 20){ duty = 0; }                                
+	if (adc >= 20 && adc < 205) { duty = 15000; }               
+	if (adc >= 205 && adc < 410) { duty = 16750; }		
+	if (adc >= 410 && adc < 615) { duty = 18500; }	
+	if (adc >= 615 && adc < 820) { duty = 20250; }	
+	if (adc >= 820 && adc < 1024) { duty = 22000; }	
+	if (adc >= 1024 && adc < 1229) { duty = 23750; }	
+	if (adc >= 1229 && adc < 1434) { duty = 25500; }	
+	if (adc >= 1434 && adc < 1638) { duty = 27250; }	
+	if (adc >= 1638 && adc < 1843) { duty = 29000; }	
+	if (adc >= 1843 && adc < 2048) { duty = 30750; }	
+	if (adc >= 2048 && adc < 2253) { duty = 32500; }	
+	if (adc >= 2253 && adc < 2457) { duty = 34250; }
+	if (adc >= 2457 && adc < 2662) { duty = 36000; }	
+	if (adc >= 2662 && adc < 2867) { duty = 37750; }	
+	if (adc >= 2867 && adc < 3072) { duty = 39500; }
+	if (adc >= 3072 && adc < 3276) { duty = 41250; }
+	if (adc >= 3276 && adc < 3481) { duty = 43000; }	
+	if (adc >= 3481 && adc < 3686) { duty = 44750; }	
+	if (adc >= 3686 && adc < 3891) { duty = 46500; }	
+	if (adc >= 3891) { duty = 50000; }
 	
 }
 
@@ -101,7 +111,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
   if(hadc->Instance == ADC1) //check if the interrupt comes from ACD1
    {
 		adc = HAL_ADC_GetValue(&hadc1);
-		 value = adc * 12;
+		value = adc * 12;
    }
 }
 
@@ -138,6 +148,7 @@ int main(void)
   MX_ADC1_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_SET);
 	HAL_TIM_Base_Start(&htim3);
 	HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_1);
 	HAL_ADC_Start_IT(&hadc1);
@@ -162,7 +173,7 @@ int main(void)
 			HAL_Delay(1500);
 			duty = duty_previous;
 			rev = 0;
-		}
+		} 
   }
   /* USER CODE END 3 */
 }
@@ -233,7 +244,7 @@ static void MX_ADC1_Init(void)
   /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
   */
   hadc1.Instance = ADC1;
-  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV8;
   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
   hadc1.Init.ScanConvMode = DISABLE;
   hadc1.Init.ContinuousConvMode = ENABLE;
@@ -253,7 +264,7 @@ static void MX_ADC1_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = 1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_144CYCLES;
+  sConfig.SamplingTime = ADC_SAMPLETIME_112CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
